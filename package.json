@@ -6,7 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "fabian": "node index.js",
-    "info": "node 02-modulos-nativos/1-os.js"
+    "info": "node 02-modulos-nativos/1-os.js",
+    "os": "node ejercicios/1-os.mjs"
   },
   "keywords": [],
   "author": "Fabian Gomez",
