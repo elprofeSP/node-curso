@@ -13,5 +13,10 @@ Utiliza el método rename para renombrar el archivo creado en el ejercicio anter
 4 Eliminar archivo:
 Utiliza el método unlink para eliminar el archivo creado en el ejercicio anterior. Muestra en consola el mensaje "El archivo se ha eliminado correctamente".
 
-5 Utiliza la sintaxis de commonJS.
+5 Finalmente crea un script en el package.json que ejecute el código utilizando node (npm run fs), que tenga los siguientes comandos:
+    npm run fs crearArchivo
+    npm run fs crearCarpeta
+    npm run fs leerArchivo
+    npm run fs eliminarArchivo
+    npm run fs eliminarCarpeta
 */
