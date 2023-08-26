@@ -7,7 +7,8 @@
   "scripts": {
     "fabian": "node index.js",
     "info": "node 02-modulos-nativos/1-os.js",
-    "os": "node ejercicios/1-os.mjs"
+    "os": "node ejercicios/1-os.mjs",
+    "saludar": "node ejercicios/2-process.js"
   },
   "keywords": [],
   "author": "Fabian Gomez",
