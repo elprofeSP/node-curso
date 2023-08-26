@@ -20,3 +20,38 @@ Hola Fabian Gomez
 Estamos en desarrollo
 Adios el proceso ha terminado!
 */
+
+const process = require("node:process");
+require("dotenv").config();
+
+if (process.argv[2]) {
+  console.log("Hola " + process.argv[2]);
+} else {
+  console.log("No pasaste ningun nombre como argumento");
+  process.exit(1);
+}
+
+if (process.env.NODE_ENV === "development") {
+  console.log("Estamos en desarrollo");
+} else if (process.env.NODE_ENV === "production") {
+  console.log("Estamos en produccion");
+} else {
+  console.log("No se reconoce el valor de la variable de entorno");
+}
+
+process.on("exit", () => {
+  console.log("Adios el proceso ha terminado!");
+});
+
+// Valores verdaderos en js
+// true
+// 1
+// " rasgfsdg"
+// "0"
+
+// Valores falsos en js
+// false
+// 0
+// ""
+// null
+// undefined
