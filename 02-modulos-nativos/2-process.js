@@ -1,3 +1,4 @@
+require("dotenv").config();
 const process = require("node:process");
 
 /*
@@ -12,7 +13,17 @@ if (process.argv[2] === "dev") {
   console.log("Estás en modo desarrollo");
 }
 
-console.log(process.env);
+console.log(process.env.NOMBRE);
+console.log(process.env.EDAD);
+console.log(process.env.MY_SECRET);
+
+if(process.env.NODE_ENV === "Fabian") {
+  console.log("Hola Fabian");
+} else if(process.env.NOMBRE === "Angelo") {
+  console.log("Hola Angelo");
+} else {
+  console.log("No te conozco");
+}
 
 process.on("beforeExit", () => {
   console.log("El proceso va a terminar");
