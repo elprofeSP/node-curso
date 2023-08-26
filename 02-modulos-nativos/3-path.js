@@ -1,7 +1,7 @@
 const path = require("node:path");
 
-// console.log(__dirname);
-// console.log(__filename);
+// console.log(__dirname); // Ruta absoluta del directorio actual
+// console.log(__filename); // Ruta absoluta del archivo actual
 
 // path.basename() retorna el nombre del archivo
 const nombreArchivo = path.basename("home/usuario/fabian/index.html");
