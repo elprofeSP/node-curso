@@ -1,9 +1,15 @@
+// import { randomUUID } from "node:crypto"; -> otra opcion de generar ids
 import express from "express";
 import { require } from "./utils.js";
 
 const users = require("./users.json");
 
 const app = express();
+
+let idCount = users.length;
+
+// Middleware para parsear el body a json
+app.use(express.json());
 
 // Home de la API
 app.get("/", (req, res) => {
@@ -32,6 +38,17 @@ app.get("/users/:id", (req, res) => {
   }
   // Si hay usuario
   return res.json(user);
+});
+
+// Crear un usuario
+app.post("/users", (req, res) => {
+  if (!req.body.name || !req.body.email) {
+    return res.status(400).json({ error: "Error en la peticion" });
+  }
+  const user = req.body;
+  user.id = ++idCount;
+  users.push(user);
+  return res.status(201).json(user);
 });
 
 // Ruta no encontrada
