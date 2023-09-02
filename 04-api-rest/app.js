@@ -51,6 +51,11 @@ app.post("/users", (req, res) => {
   return res.status(201).json(user);
 });
 
+// Borrar un usuario
+app.delete("/users/:id", (req, res) => {
+  
+});
+
 // Ruta no encontrada
 app.use((req, res) => {
   res.status(404).json({ error: "Ruta no encontrada" });
