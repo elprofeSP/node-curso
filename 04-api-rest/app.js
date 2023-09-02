@@ -53,7 +53,18 @@ app.post("/users", (req, res) => {
 
 // Borrar un usuario
 app.delete("/users/:id", (req, res) => {
-  
+  const id = parseInt(req.params.id);
+  // Encontrar el indice del usuario en la db por su id
+  const index = users.findIndex((user) => user.id === id);
+  // Si no existe ningun usuario con ese id
+  if (index === -1) {
+    return res.status(404).json({ error: "Usuario no encontrado" });
+  } else {
+    // Eliminar el usuario de la base de datos segun su id
+    users.splice(index, 1);
+    // Responder con un mensaje
+    res.json({ message: "Usuario eliminado correctamente" });
+  }
 });
 
 // Ruta no encontrada

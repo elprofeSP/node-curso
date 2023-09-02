@@ -17,10 +17,11 @@ const nombres = [
     name: "Brayan",
   },
 ];
-const indiceEstudiante = nombres.findIndex((nombre) => nombre.id === 213);
+const indiceEstudiante = nombres.findIndex((nombre) => nombre.id === 124877324899);
 console.log(indiceEstudiante);
 
-const elementosEliminados = nombres.splice(indiceEstudiante, 1);
+// console.log(nombres[-1])
+const elementosEliminados = nombres.splice(-1, 1);
 
 console.log(elementosEliminados);
 console.log(nombres);
