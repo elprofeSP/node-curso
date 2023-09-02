@@ -18,6 +18,16 @@ app.get("/", (req, res) => {
 
 // Obtener todos los usuarios
 app.get("/users", (req, res) => {
+  if (req.query.name) {
+    // Buscar el usuario con el mismo nombre que llega por parametro con el metodo find
+    const user = users.filter((user) => user.name === req.query.name);
+    // Si no existe
+    if (!user) {
+      return res.status(404).json({ error: "Usuario no encontrado" });
+    }
+    // Si existe
+    return res.json(user);
+  }
   // Si no hay usuarios
   if (users.length === 0) {
     return res.status(404).json({ error: "No hay usuarios" });
@@ -46,9 +56,24 @@ app.post("/users", (req, res) => {
     return res.status(400).json({ error: "Error en la peticion" });
   }
   const user = req.body;
-  user.id = ++idCount;
-  users.push(user);
+  const id = ++idCount;
+  users.push({ id, ...user });
   return res.status(201).json(user);
+});
+
+// Modificar un usuario
+app.patch("/users/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  // Encontrar el indice del usuario en la db por su id
+  const index = users.findIndex((user) => user.id === id);
+  // Si no existe ningun usuario con ese id
+  if (index === -1) {
+    return res.status(404).json({ error: "Usuario no encontrado" });
+  } else {
+    const userUpdated = { ...users[index], ...req.body };
+    users[index] = userUpdated;
+    res.json(userUpdated);
+  }
 });
 
 // Borrar un usuario

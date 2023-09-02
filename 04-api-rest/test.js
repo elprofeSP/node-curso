@@ -17,11 +17,22 @@ const nombres = [
     name: "Brayan",
   },
 ];
-const indiceEstudiante = nombres.findIndex((nombre) => nombre.id === 124877324899);
-console.log(indiceEstudiante);
+console.log(nombres[1])
 
-// console.log(nombres[-1])
-const elementosEliminados = nombres.splice(-1, 1);
+// const indiceEstudiante = nombres.findIndex((nombre) => nombre.id === 124877324899);
+// console.log(indiceEstudiante);
 
-console.log(elementosEliminados);
-console.log(nombres);
+// // console.log(nombres[-1])
+// const elementosEliminados = nombres.splice(-1, 1);
+
+// console.log(elementosEliminados);
+// console.log(nombres);
+
+const numeros = [1, 2, 3]
+
+const numerosHastaDiez = [ ...numeros, 4, 5, 6, 7]
+
+console.log(numerosHastaDiez)
+
+const nuevoUsuario = { name: "jose@mail.com", ...nombres[1]}
+console.log(nuevoUsuario)
